@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroidOS Pricing</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #0d1117;
+            color: #c9d1d9;
+        }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #161b22;
+            border-radius: 8px;
+            border: 1px solid #30363d;
+        }
+        h1, h2 {
+            color: #f0f6fc;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #8b949e;
+            margin-bottom: 40px;
+        }
+        a {
+            color: #58a6ff;
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        @media (max-width: 600px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .pricing-card {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+        .pricing-card.featured {
+            border-color: #58a6ff;
+        }
+        .pricing-card h3 {
+            color: #f0f6fc;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+        .pricing-card .price {
+            font-size: 2em;
+            font-weight: bold;
+            color: #f0f6fc;
+            margin: 10px 0;
+        }
+        .pricing-card .price span {
+            font-size: 0.4em;
+            color: #8b949e;
+            font-weight: normal;
+        }
+        .pricing-card .badge {
+            display: inline-block;
+            background: #1f6feb;
+            color: #fff;
+            font-size: 0.75em;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            width: fit-content;
+        }
+        .pricing-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 15px 0;
+            flex-grow: 1;
+        }
+        .pricing-card ul li {
+            padding: 4px 0;
+        }
+        .pricing-card ul li::before {
+            content: "✓ ";
+            color: #3fb950;
+        }
+        .section-title {
+            border-bottom: 1px solid #30363d;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        .free-section {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 30px;
+        }
+        .free-section h3 {
+            color: #f0f6fc;
+            margin-top: 0;
+        }
+        .free-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        .free-section ul li {
+            padding: 4px 0;
+        }
+        .free-section ul li::before {
+            content: "✓ ";
+            color: #3fb950;
+        }
+        .faq dt {
+            color: #f0f6fc;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .faq dd {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DroidOS Pricing</h1>
+        <p class="subtitle">Android tiling window manager and productivity suite</p>
+
+        <h2 class="section-title">Community (Free)</h2>
+
+        <div class="free-section">
+            <h3>Free — always</h3>
+            <p>Full-featured tiling window manager with keyboard/trackpad companion app.</p>
+            <ul>
+                <li>Queue-based tiling window manager</li>
+                <li>Floating launcher bubble with app drawer</li>
+                <li>Keyboard and trackpad companion app</li>
+                <li>Auto Margin + IME sync for seamless typing</li>
+                <li>Full-screen and tiled app coexistence</li>
+                <li>External automation support (Tasker, MacroDroid, ADB)</li>
+                <li>Workspace profiles and custom layouts (unlimited)</li>
+                <li>Display tuning (resolution, DPI, refresh rate)</li>
+                <li>Virtual display and mirror mode support</li>
+            </ul>
+            <p style="color: #8b949e;">Available on <a href="https://github.com/Katsuyamaki/DroidOS">GitHub</a> and F-Droid.</p>
+        </div>
+
+        <h2 class="section-title">Paid Modules</h2>
+        <p>Unlock additional capabilities. Purchase individually or get everything with Pro.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <h3>Customization Module</h3>
+                <div class="price">$9.99</div>
+                <p style="color: #8b949e;">One-time purchase</p>
+                <ul>
+                    <li>Rename apps, layouts, and profiles</li>
+                    <li>Custom icon themes</li>
+                    <li>Advanced profile save modes (by mode, layout, apps, or queue)</li>
+                    <li>Orientation-aware layouts and profiles</li>
+                </ul>
+            </div>
+            <div class="pricing-card">
+                <h3>Power Module</h3>
+                <div class="price">$9.99</div>
+                <p style="color: #8b949e;">One-time purchase</p>
+                <ul>
+                    <li>Real off-screen minimize (hidden virtual display)</li>
+                    <li>App lock mode (prevent accidental kill)</li>
+                    <li>Multi-activity app tracking and subactivity detection</li>
+                    <li>DeX subactivity auto-sync and auto-retile</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">Pro License</h2>
+        <p>Unlock everything — both modules, all future modules, and priority updates.</p>
+
+        <div class="pricing-grid">
+            <div class="pricing-card featured">
+                <span class="badge">Best Value</span>
+                <h3>Pro Annual</h3>
+                <div class="price">$39 <span>/ year</span></div>
+                <ul>
+                    <li>Both modules included</li>
+                    <li>All future modules included</li>
+                    <li>Priority updates and early access</li>
+                    <li>Activate on up to 3 devices</li>
+                </ul>
+            </div>
+            <div class="pricing-card featured">
+                <h3>Pro Lifetime</h3>
+                <div class="price">$89</div>
+                <p style="color: #8b949e;">One-time purchase</p>
+                <ul>
+                    <li>Both modules included — forever</li>
+                    <li>All future modules included — forever</li>
+                    <li>Priority updates and early access</li>
+                    <li>Activate on up to 3 devices</li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="section-title">FAQ</h2>
+        <dl class="faq">
+            <dt>Is the Community version really free?</dt>
+            <dd>Yes. DroidOS Community is free and always will be. It includes the full tiling window manager, keyboard/trackpad app, and all features that existed in v4.0. Paid modules add new v5.0+ power-user features on top.</dd>
+
+            <dt>What's the difference between buying modules and Pro?</dt>
+            <dd>Individual modules unlock specific feature sets. Pro unlocks both current modules plus every future module we build. If you plan to use DroidOS long-term, Pro is the better value.</dd>
+
+            <dt>How many devices can I use?</dt>
+            <dd>Each license (module or Pro) can be activated on up to 3 devices. You can deactivate a device at any time to free up a slot.</dd>
+
+            <dt>What happens if I cancel Pro Annual?</dt>
+            <dd>Your Pro features remain active until the end of your billing period. After that, you keep access to the free Community features.</dd>
+
+            <dt>Do you offer refunds?</dt>
+            <dd>Yes. We offer a 14-day refund policy on all purchases. See our <a href="terms-of-service.html">Terms of Service</a> for details.</dd>
+
+            <dt>Is the DroidOS Keyboard/Trackpad app free?</dt>
+            <dd>Yes. The keyboard/trackpad companion app is free across all tiers. Paid keyboard modules may be offered in the future.</dd>
+        </dl>
+
+        <p style="margin-top: 40px; text-align: center; color: #8b949e;">
+            <a href="index.html">Home</a> &bull;
+            <a href="privacy-policy.html">Privacy Policy</a> &bull;
+            <a href="terms-of-service.html">Terms of Service</a>
+        </p>
+    </div>
+</body>
+</html>
