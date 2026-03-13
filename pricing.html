@@ -94,7 +94,7 @@
             padding: 4px 0;
         }
         .pricing-card ul li::before {
-            content: "✓ ";
+            content: "\2713 ";
             color: #3fb950;
         }
         .section-title {
@@ -121,8 +121,63 @@
             padding: 4px 0;
         }
         .free-section ul li::before {
-            content: "✓ ";
+            content: "\2713 ";
             color: #3fb950;
+        }
+        .launch-note {
+            background: rgba(31, 111, 235, 0.15);
+            border: 1px solid #1f6feb;
+            color: #c9d1d9;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin: 0 0 28px 0;
+        }
+        .launch-note strong {
+            color: #f0f6fc;
+        }
+        .price-old {
+            color: #8b949e;
+            text-decoration: line-through;
+            margin-right: 6px;
+        }
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 0 0 20px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            border-radius: 6px;
+            border: 1px solid #1f6feb;
+            background: #1f6feb;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 14px;
+        }
+        .cta-button:hover {
+            filter: brightness(1.06);
+        }
+        .cta-button.disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+            border-color: #484f58;
+            background: #30363d;
+            pointer-events: none;
+        }
+        .secondary-link {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.92em;
+            color: #8b949e;
+            text-decoration: underline;
+        }
+        .field-note {
+            color: #8b949e;
+            font-size: 0.92em;
+            margin-top: -8px;
+            margin-bottom: 20px;
         }
         .faq dt {
             color: #f0f6fc;
@@ -139,11 +194,18 @@
     <div class="container">
         <h1>DroidOS Pricing</h1>
         <p class="subtitle">Android tiling window manager and productivity suite</p>
+        <p class="launch-note"><strong>Early Access Launch Offer:</strong> All paid options (modules and Pro) are 15% off through April 10, 2026 (or first 200 paid activations). Core workflows are stable, and this phase helps us polish edge-case compatibility faster.</p>
+
+        <div class="quick-actions">
+            <a class="cta-button" href="license-recovery.html">Retrieve License Key</a>
+            <a class="cta-button" href="terms-of-service.html">Refund &amp; License Terms</a>
+        </div>
+        <p class="field-note">If you already purchased, open <strong>Retrieve License Key</strong> and enter your Paddle purchase email and receipt transaction ID (for example: <code>txn_...</code>).</p>
 
         <h2 class="section-title">Community (Free)</h2>
 
         <div class="free-section">
-            <h3>Free — always</h3>
+            <h3>Free - always</h3>
             <p>Full-featured tiling window manager with keyboard/trackpad companion app.</p>
             <ul>
                 <li>Queue-based tiling window manager</li>
@@ -155,13 +217,13 @@
                 <li>Virtual display and mirror mode support</li>
             </ul>
 
-            <h4 style="color: #3fb950; margin-top: 20px; margin-bottom: 10px;">New in v5.0 — free for all Community users</h4>
+            <h4 style="color: #3fb950; margin-top: 20px; margin-bottom: 10px;">New in v5.0 - free for all Community users</h4>
             <ul>
-                <li><strong>Smart Auto Margin + IME sync</strong> — launcher margins, keyboard, and dock stay in sync for seamless typing across tiled windows</li>
-                <li><strong>Full-screen + tiled app coexistence</strong> — use tiled apps alongside full-screen Android apps with automatic transitions and keyboard compatibility</li>
-                <li><strong>Expanded real minimize</strong> — truly hide apps off-screen on Samsung DeX (A10-16) and virtual mirror mode (A14 and below), not just corner-hide</li>
-                <li><strong>Smart app window tracking</strong> — correctly detect and tile apps that open multiple windows or sub-screens (for example, Google Docs opening a separate document), with enhanced Samsung DeX compatibility</li>
-                <li><strong>New broadcast commands</strong> — Open &amp; Move To, Open &amp; Swap, and more for advanced automation workflows</li>
+                <li><strong>Smart Auto Margin + IME sync</strong> - launcher margins, keyboard, and dock stay in sync for seamless typing across tiled windows</li>
+                <li><strong>Full-screen + tiled app coexistence</strong> - use tiled apps alongside full-screen Android apps with automatic transitions and keyboard compatibility</li>
+                <li><strong>Expanded real minimize</strong> - truly hide apps off-screen on Samsung DeX (A10-16) and virtual mirror mode (A14 and below), not just corner-hide</li>
+                <li><strong>Smart app window tracking</strong> - correctly detect and tile apps that open multiple windows or sub-screens (for example, Google Docs opening a separate document), with enhanced Samsung DeX compatibility</li>
+                <li><strong>New broadcast commands</strong> - Open &amp; Move To, Open &amp; Swap, and more for advanced automation workflows</li>
                 <li>Improved stability, Android 15 compatibility, and dozens of bug fixes</li>
             </ul>
 
@@ -169,57 +231,69 @@
         </div>
 
         <h2 class="section-title">Paid Modules</h2>
-        <p>Unlock additional capabilities. Purchase individually or get everything with Pro.</p>
+        <p>Unlock additional capabilities. Early Access pricing is live: modules are also 15% off, or get everything with Pro.</p>
 
         <div class="pricing-grid">
             <div class="pricing-card">
+                <span class="badge">Early Access 15% Off</span>
                 <h3>Customization Module</h3>
-                <div class="price">$9.99</div>
-                <p style="color: #8b949e;">One-time purchase</p>
+                <div class="price">$8.49</div>
+                <p style="color: #8b949e;"><span class="price-old">$9.99</span>regular one-time price</p>
                 <ul>
                     <li>Rename apps, layouts, and profiles</li>
                     <li>Custom icon themes</li>
                     <li>Advanced profile save modes (by mode, layout, apps, or queue)</li>
                     <li>Orientation-aware layouts and profiles</li>
                 </ul>
+                <a class="cta-button cta-buy" data-product="customization" href="#">Buy Customization Module</a>
+                <a class="secondary-link" href="license-recovery.html">Already purchased? Retrieve key</a>
             </div>
             <div class="pricing-card">
+                <span class="badge">Early Access 15% Off</span>
                 <h3>Power Module</h3>
-                <div class="price">$9.99</div>
-                <p style="color: #8b949e;">One-time purchase</p>
+                <div class="price">$8.49</div>
+                <p style="color: #8b949e;"><span class="price-old">$9.99</span>regular one-time price</p>
                 <ul>
-                    <li><strong>Dynamic Tiling</strong> — automatically switches layouts as active app count changes (1-6), no manual layout switching needed</li>
-                    <li><strong>Peek Mode</strong> — open apps as quick floating popups without taking a tiling slot</li>
-                    <li><strong>App lock mode</strong> — prevent accidental kill of tiled apps to protect unsaved work</li>
+                    <li><strong>Dynamic Tiling</strong> - automatically switches layouts as active app count changes (1-6), no manual layout switching needed</li>
+                    <li><strong>Peek Mode</strong> - open apps as quick floating popups without taking a tiling slot</li>
+                    <li><strong>App lock mode</strong> - prevent accidental kill of tiled apps to protect unsaved work</li>
                 </ul>
+                <a class="cta-button cta-buy" data-product="power" href="#">Buy Power Module</a>
+                <a class="secondary-link" href="license-recovery.html">Already purchased? Retrieve key</a>
             </div>
         </div>
 
         <h2 class="section-title">Pro License</h2>
-        <p>Unlock everything — both modules, all future modules, and priority updates.</p>
+        <p>Early Access pricing is live: 15% off while we ship rapid compatibility fixes and polish based on user feedback.</p>
 
         <div class="pricing-grid">
             <div class="pricing-card featured">
-                <span class="badge">Best Value</span>
+                <span class="badge">Early Access 15% Off</span>
                 <h3>Pro Annual</h3>
-                <div class="price">$39 <span>/ year</span></div>
+                <div class="price">$33.15 <span>/ year</span></div>
+                <p style="color: #8b949e;"><span class="price-old">$39.00</span>regular annual price</p>
                 <ul>
                     <li>Both modules included</li>
                     <li>All future modules included</li>
-                    <li>Priority updates and early access</li>
+                    <li>Priority updates and feedback priority</li>
                     <li>Activate on up to 3 devices</li>
                 </ul>
+                <a class="cta-button cta-buy" data-product="pro_annual" href="#">Buy Pro Annual</a>
+                <a class="secondary-link" href="license-recovery.html">Already purchased? Retrieve key</a>
             </div>
             <div class="pricing-card featured">
+                <span class="badge">Early Access 15% Off</span>
                 <h3>Pro Lifetime</h3>
-                <div class="price">$89</div>
-                <p style="color: #8b949e;">One-time purchase</p>
+                <div class="price">$75.65</div>
+                <p style="color: #8b949e;"><span class="price-old">$89.00</span>regular one-time price</p>
                 <ul>
-                    <li>Both modules included — forever</li>
-                    <li>All future modules included — forever</li>
-                    <li>Priority updates and early access</li>
+                    <li>Both modules included - forever</li>
+                    <li>All future modules included - forever</li>
+                    <li>Priority updates and feedback priority</li>
                     <li>Activate on up to 3 devices</li>
                 </ul>
+                <a class="cta-button cta-buy" data-product="pro_lifetime" href="#">Buy Pro Lifetime</a>
+                <a class="secondary-link" href="license-recovery.html">Already purchased? Retrieve key</a>
             </div>
         </div>
 
@@ -228,8 +302,17 @@
             <dt>Is the Community version really free?</dt>
             <dd>Yes. DroidOS Community is free and always will be. v5.0 adds major free improvements including Smart Auto Margin, full-screen app coexistence, expanded real minimize, and smart app window tracking. Paid modules add additional v5.0+ power-user features like custom themes, advanced profiles, Dynamic Tiling, Peek Mode, and app lock mode.</dd>
 
+            <dt>How do I get my license key after purchase?</dt>
+            <dd>Use the <a href="license-recovery.html">Retrieve License Key</a> page with your Paddle purchase email and the transaction ID from your Paddle receipt email (for example, <code>txn_...</code>).</dd>
+
             <dt>What's the difference between buying modules and Pro?</dt>
             <dd>Individual modules unlock specific feature sets. Pro unlocks both current modules plus every future module we build. If you plan to use DroidOS long-term, Pro is the better value.</dd>
+
+            <dt>How long is Early Access pricing available?</dt>
+            <dd>The 15% launch discount is available through April 10, 2026, or until the first 200 paid activations, whichever comes first.</dd>
+
+            <dt>What does Early Access mean?</dt>
+            <dd>Core workflows are stable and ready to use. We are actively improving edge-case compatibility and shipping frequent updates based on user feedback.</dd>
 
             <dt>How many devices can I use?</dt>
             <dd>Each license (module or Pro) can be activated on up to 3 devices. You can deactivate a device at any time to free up a slot.</dd>
@@ -244,7 +327,7 @@
             <dd>Yes. The keyboard/trackpad companion app is free across all tiers. Paid keyboard modules may be offered in the future.</dd>
         </dl>
 
-        <p style="margin-top: 30px; color: #8b949e; font-size: 0.85em;">Prices are listed in USD and are subject to change. Applicable taxes are calculated at checkout by Paddle. See our <a href="terms-of-service.html">Terms of Service</a> for refund policy and license details.</p>
+        <p style="margin-top: 30px; color: #8b949e; font-size: 0.85em;">Prices are listed in USD and are subject to change. Applicable taxes are calculated at checkout by Paddle. Early Access launch discount ends April 10, 2026, or after the first 200 paid activations. See our <a href="terms-of-service.html">Terms of Service</a> for refund policy and license details.</p>
 
         <p style="margin-top: 20px; text-align: center; color: #8b949e;">
             <a href="index.html">Home</a> &bull;
@@ -252,5 +335,34 @@
             <a href="terms-of-service.html">Terms of Service</a>
         </p>
     </div>
+
+    <script>
+        // Fill these with your live Paddle checkout/payment URLs once approved.
+        // Example values:
+        // "https://pay.paddle.com/checkout/...."
+        const CHECKOUT_URLS = {
+            customization: "",
+            power: "",
+            pro_annual: "",
+            pro_lifetime: ""
+        };
+
+        document.querySelectorAll('.cta-buy').forEach((button) => {
+            const product = button.getAttribute('data-product');
+            const checkoutUrl = (CHECKOUT_URLS[product] || '').trim();
+
+            if (!checkoutUrl) {
+                button.classList.add('disabled');
+                button.textContent = 'Checkout opens after Paddle approval';
+                button.setAttribute('aria-disabled', 'true');
+                button.href = '#';
+                return;
+            }
+
+            button.href = checkoutUrl;
+            button.target = '_blank';
+            button.rel = 'noopener noreferrer';
+        });
+    </script>
 </body>
 </html>
