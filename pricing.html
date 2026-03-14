@@ -223,7 +223,8 @@
                 <li><strong>Full-screen + tiled app coexistence</strong> - use tiled apps alongside full-screen Android apps with automatic transitions and keyboard compatibility</li>
                 <li><strong>Expanded real minimize</strong> - truly hide apps off-screen on Samsung DeX (A10-16) and virtual mirror mode (A14 and below), not just corner-hide</li>
                 <li><strong>Smart app window tracking</strong> - correctly detect and tile apps that open multiple windows or sub-screens (for example, Google Docs opening a separate document), with enhanced Samsung DeX compatibility</li>
-                <li><strong>New broadcast commands</strong> - Open &amp; Move To, Open &amp; Swap, and more for advanced automation workflows</li>
+                <li><strong>New broadcast commands</strong> - Open &amp; Move To, Open &amp; Swap, Manual Retile, and more for advanced automation workflows</li>
+                <li><strong>Manual re-tile command</strong> - double tap the floating app bubble to manually reapply the current app queue and layouts</li>
                 <li>Improved stability, Android 15 compatibility, and dozens of bug fixes</li>
             </ul>
 
@@ -347,9 +348,24 @@
             pro_lifetime: ""
         };
 
+        const EARLY_ACCESS_DISCOUNT_ID = "dsc_01kkmmnnqs4p7ph2hrkg7c6gyd";
+
+        function withDiscountId(url, discountId) {
+            if (!url || !discountId) return url;
+            try {
+                const parsed = new URL(url);
+                parsed.searchParams.set("discount_id", discountId);
+                return parsed.toString();
+            } catch (_) {
+                const delimiter = url.includes("?") ? "&" : "?";
+                return url + delimiter + "discount_id=" + encodeURIComponent(discountId);
+            }
+        }
+
         document.querySelectorAll('.cta-buy').forEach((button) => {
             const product = button.getAttribute('data-product');
             const checkoutUrl = (CHECKOUT_URLS[product] || '').trim();
+            const checkoutUrlWithDiscount = withDiscountId(checkoutUrl, EARLY_ACCESS_DISCOUNT_ID);
 
             if (!checkoutUrl) {
                 button.classList.add('disabled');
@@ -359,7 +375,7 @@
                 return;
             }
 
-            button.href = checkoutUrl;
+            button.href = checkoutUrlWithDiscount;
             button.target = '_blank';
             button.rel = 'noopener noreferrer';
         });
