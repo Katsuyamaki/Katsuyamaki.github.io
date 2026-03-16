@@ -341,21 +341,10 @@
     </div>
 
     
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
     <script>
-        // Option A: paste direct checkout URLs copied from Paddle (one per plan).
-        // Option B: set one hosted checkout base URL + per-plan live price IDs.
-        // If both are set for a plan, direct URL takes priority.
-        const CHECKOUT_DIRECT_URLS = {
-            customization: "",
-            power: "",
-            pro_annual: "",
-            pro_lifetime: ""
-        };
+        const PADDLE_CLIENT_SIDE_TOKEN = "live_518c334593b81e5d741033c589c";
 
-        // Example: "https://pay.paddle.com/checkout/hsc_..."
-        const HOSTED_CHECKOUT_BASE_URL = "";
-
-        // Live Paddle price IDs (pri_...).
         const PRICE_IDS = {
             customization: "pri_01kk943pt4pty7j7jg5b67tz28",
             power: "pri_01kk9424vv2qs5d98ysh5s5vq1",
@@ -363,63 +352,55 @@
             pro_lifetime: "pri_01kk9460f1tcx66neyg3zqtsyt"
         };
 
-        // Reference only: mapped Paddle product IDs used by license backend.
-        // customization: pro_01kk93nyabp779y49vfy5mehch
-        // power:         pro_01kk93shpmwgy7fh3399chn8r1
-        // pro_annual:    pro_01kk93g1p2ccjf4x4rkme96tr8
-        // pro_lifetime:  pro_01kk93k2f556zmnp3jwncmdtt4
-
-        const EARLY_ACCESS_DISCOUNT_ID = "dsc_01kkmmnnqs4p7ph2hrkg7c6gyd";
-
-        function withDiscountId(url, discountId) {
-            if (!url || !discountId) return url;
-            try {
-                const parsed = new URL(url);
-                parsed.searchParams.set("discount_id", discountId);
-                return parsed.toString();
-            } catch (_) {
-                const delimiter = url.includes("?") ? "&" : "?";
-                return url + delimiter + "discount_id=" + encodeURIComponent(discountId);
-            }
+        function disableButton(button, label) {
+            button.classList.add('disabled');
+            button.textContent = label;
+            button.setAttribute('aria-disabled', 'true');
+            button.href = '#';
         }
 
-        function withHostedCheckoutParams(baseUrl, priceId, discountId) {
-            if (!baseUrl || !priceId) return "";
-            try {
-                const parsed = new URL(baseUrl);
-                parsed.searchParams.set("price_id", priceId);
-                if (discountId) parsed.searchParams.set("discount_id", discountId);
-                return parsed.toString();
-            } catch (_) {
-                return "";
-            }
-        }
+        function initButtons() {
+            const buttons = document.querySelectorAll('.cta-buy');
+            buttons.forEach((button) => {
+                const product = button.getAttribute('data-product');
+                const priceId = (PRICE_IDS[product] || '').trim();
 
-        function resolveCheckoutUrl(product) {
-            const directUrl = (CHECKOUT_DIRECT_URLS[product] || "").trim();
-            if (directUrl) return withDiscountId(directUrl, EARLY_ACCESS_DISCOUNT_ID);
+                if (!priceId) {
+                    disableButton(button, 'Checkout not configured');
+                    return;
+                }
 
-            const priceId = (PRICE_IDS[product] || "").trim();
-            const hostedUrl = (HOSTED_CHECKOUT_BASE_URL || "").trim();
-            return withHostedCheckoutParams(hostedUrl, priceId, EARLY_ACCESS_DISCOUNT_ID);
-        }
-
-        document.querySelectorAll('.cta-buy').forEach((button) => {
-            const product = button.getAttribute('data-product');
-            const checkoutUrl = resolveCheckoutUrl(product);
-
-            if (!checkoutUrl) {
-                button.classList.add('disabled');
-                button.textContent = 'Checkout link not configured';
-                button.setAttribute('aria-disabled', 'true');
                 button.href = '#';
-                return;
-            }
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    if (!window.Paddle || !window.Paddle.Checkout) {
+                        disableButton(button, 'Checkout unavailable');
+                        return;
+                    }
 
-            button.href = checkoutUrl;
-            button.target = '_blank';
-            button.rel = 'noopener noreferrer';
-        });
+                    window.Paddle.Checkout.open({
+                        items: [
+                            {
+                                priceId,
+                                quantity: 1
+                            }
+                        ]
+                    });
+                });
+            });
+        }
+
+        try {
+            if (!window.Paddle || !window.Paddle.Initialize) {
+                throw new Error('Paddle.js failed to load');
+            }
+            window.Paddle.Initialize({ token: PADDLE_CLIENT_SIDE_TOKEN });
+            initButtons();
+        } catch (_) {
+            document.querySelectorAll('.cta-buy').forEach((button) => {
+                disableButton(button, 'Checkout unavailable');
+            });
+        }
     </script>
 </body>
 </html>
