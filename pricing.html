@@ -345,6 +345,8 @@
     <script>
         const PADDLE_CLIENT_SIDE_TOKEN = "live_518c334593b81e5d741033c589c";
 
+        const LAUNCH_DISCOUNT_ID = "dsc_01kkmmnnqs4p7ph2hrkg7c6gyd";
+
         const PRICE_IDS = {
             customization: "pri_01kk943pt4pty7j7jg5b67tz28",
             power: "pri_01kk9424vv2qs5d98ysh5s5vq1",
@@ -379,6 +381,7 @@
                     }
 
                     window.Paddle.Checkout.open({
+                        discountId: LAUNCH_DISCOUNT_ID,
                         items: [
                             {
                                 priceId,
