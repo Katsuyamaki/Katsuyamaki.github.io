@@ -340,16 +340,34 @@
         </p>
     </div>
 
+    
     <script>
-        // Fill these with your live Paddle checkout/payment URLs once approved.
-        // Example values:
-        // "https://pay.paddle.com/checkout/...."
-        const CHECKOUT_URLS = {
+        // Option A: paste direct checkout URLs copied from Paddle (one per plan).
+        // Option B: set one hosted checkout base URL + per-plan live price IDs.
+        // If both are set for a plan, direct URL takes priority.
+        const CHECKOUT_DIRECT_URLS = {
             customization: "",
             power: "",
             pro_annual: "",
             pro_lifetime: ""
         };
+
+        // Example: "https://pay.paddle.com/checkout/hsc_..."
+        const HOSTED_CHECKOUT_BASE_URL = "https://pay.paddle.com/checkout";
+
+        // Live Paddle price IDs (pri_...).
+        const PRICE_IDS = {
+            customization: "pri_01kk943pt4pty7j7jg5b67tz28",
+            power: "pri_01kk9424vv2qs5d98ysh5s5vq1",
+            pro_annual: "pri_01kk949fhjncytn53g2zg59a60",
+            pro_lifetime: "pri_01kk9460f1tcx66neyg3zqtsyt"
+        };
+
+        // Reference only: mapped Paddle product IDs used by license backend.
+        // customization: pro_01kk93nyabp779y49vfy5mehch
+        // power:         pro_01kk93shpmwgy7fh3399chn8r1
+        // pro_annual:    pro_01kk93g1p2ccjf4x4rkme96tr8
+        // pro_lifetime:  pro_01kk93k2f556zmnp3jwncmdtt4
 
         const EARLY_ACCESS_DISCOUNT_ID = "dsc_01kkmmnnqs4p7ph2hrkg7c6gyd";
 
@@ -365,20 +383,40 @@
             }
         }
 
+        function withHostedCheckoutParams(baseUrl, priceId, discountId) {
+            if (!baseUrl || !priceId) return "";
+            try {
+                const parsed = new URL(baseUrl);
+                parsed.searchParams.set("price_id", priceId);
+                if (discountId) parsed.searchParams.set("discount_id", discountId);
+                return parsed.toString();
+            } catch (_) {
+                return "";
+            }
+        }
+
+        function resolveCheckoutUrl(product) {
+            const directUrl = (CHECKOUT_DIRECT_URLS[product] || "").trim();
+            if (directUrl) return withDiscountId(directUrl, EARLY_ACCESS_DISCOUNT_ID);
+
+            const priceId = (PRICE_IDS[product] || "").trim();
+            const hostedUrl = (HOSTED_CHECKOUT_BASE_URL || "").trim();
+            return withHostedCheckoutParams(hostedUrl, priceId, EARLY_ACCESS_DISCOUNT_ID);
+        }
+
         document.querySelectorAll('.cta-buy').forEach((button) => {
             const product = button.getAttribute('data-product');
-            const checkoutUrl = (CHECKOUT_URLS[product] || '').trim();
-            const checkoutUrlWithDiscount = withDiscountId(checkoutUrl, EARLY_ACCESS_DISCOUNT_ID);
+            const checkoutUrl = resolveCheckoutUrl(product);
 
             if (!checkoutUrl) {
                 button.classList.add('disabled');
-                button.textContent = 'Checkout opens after Paddle approval';
+                button.textContent = 'Checkout link not configured';
                 button.setAttribute('aria-disabled', 'true');
                 button.href = '#';
                 return;
             }
 
-            button.href = checkoutUrlWithDiscount;
+            button.href = checkoutUrl;
             button.target = '_blank';
             button.rel = 'noopener noreferrer';
         });
