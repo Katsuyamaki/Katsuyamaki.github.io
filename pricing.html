@@ -194,7 +194,6 @@
     <div class="container">
         <h1>DroidOS Pricing</h1>
         <p class="subtitle">Android tiling window manager and productivity suite</p>
-        <p class="launch-note"><strong>Early Access Launch Offer:</strong> All paid options (modules and Pro) are 15% off through April 10, 2026 (or first 200 paid activations). Core workflows are stable, and this phase helps us polish edge-case compatibility faster.</p>
 
         <div class="quick-actions">
             <a class="cta-button" href="license-recovery.html">Retrieve License Key</a>
@@ -234,14 +233,13 @@
         </div>
 
         <h2 class="section-title">Paid Modules</h2>
-        <p>Unlock additional capabilities. Early Access pricing is live: modules are also 15% off, or get everything with Pro.</p>
+        <p>Unlock additional capabilities with one-time module purchases, or get everything with Pro.</p>
 
         <div class="pricing-grid">
             <div class="pricing-card">
-                <span class="badge">Early Access 15% Off</span>
                 <h3>Customization Module</h3>
-                <div class="price">$8.49</div>
-                <p style="color: #8b949e;"><span class="price-old">$9.99</span>regular one-time price</p>
+                <div class="price">$9.99</div>
+                <p style="color: #8b949e;">One-time purchase</p>
                 <ul>
                     <li>Rename apps, layouts, and profiles</li>
                     <li><strong>Custom Icons</strong> - toggle between default, a standard theme pack or use your own</li>
@@ -251,11 +249,10 @@
                 <a class="secondary-link" href="license-recovery.html">Already purchased? Retrieve key</a>
             </div>
             <div class="pricing-card">
-                <span class="badge">Early Access 15% Off</span>
                 <h3>Power Module</h3>
                 <a class="secondary-link" href="https://www.youtube.com/watch?v=owVLii3bzjI" target="_blank" rel="noopener noreferrer">Watch Power Module Demo</a>
-                <div class="price">$8.49</div>
-                <p style="color: #8b949e;"><span class="price-old">$9.99</span>regular one-time price</p>
+                <div class="price">$9.99</div>
+                <p style="color: #8b949e;">One-time purchase</p>
                 <ul>
                     <li><strong>Dynamic Tiling</strong> - automatically switches layouts as active app count changes (1-6), no manual layout switching needed</li>
                     <li><strong>Peek Mode</strong> - open apps as quick floating popups without taking a tiling slot</li>
@@ -268,14 +265,13 @@
         </div>
 
         <h2 class="section-title">Pro License</h2>
-        <p>Early Access pricing is live: 15% off while we ship rapid compatibility fixes and polish based on user feedback.</p>
+        <p>Pro includes both current paid modules plus future modules as they ship.</p>
 
         <div class="pricing-grid">
             <div class="pricing-card featured">
-                <span class="badge">Early Access 15% Off</span>
                 <h3>Pro Annual</h3>
-                <div class="price">$33.15 <span>/ year</span></div>
-                <p style="color: #8b949e;"><span class="price-old">$39.00</span>regular annual price</p>
+                <div class="price">$39.00 <span>/ year</span></div>
+                <p style="color: #8b949e;">Annual subscription</p>
                 <ul>
                     <li>Both modules included</li>
                     <li>All future modules included</li>
@@ -286,10 +282,9 @@
                 <a class="secondary-link" href="license-recovery.html">Already purchased? Retrieve key</a>
             </div>
             <div class="pricing-card featured">
-                <span class="badge">Early Access 15% Off</span>
                 <h3>Pro Lifetime</h3>
-                <div class="price">$75.65</div>
-                <p style="color: #8b949e;"><span class="price-old">$89.00</span>regular one-time price</p>
+                <div class="price">$89.00</div>
+                <p style="color: #8b949e;">One-time purchase</p>
                 <ul>
                     <li>Both modules included - forever</li>
                     <li>All future modules included - forever</li>
@@ -312,12 +307,6 @@
             <dt>What's the difference between buying modules and Pro?</dt>
             <dd>Individual modules unlock specific feature sets. Pro unlocks both current modules plus every future module we build. If you plan to use DroidOS long-term, Pro is the better value.</dd>
 
-            <dt>How long is Early Access pricing available?</dt>
-            <dd>The 15% launch discount is available through April 10, 2026, or until the first 200 paid activations, whichever comes first.</dd>
-
-            <dt>What does Early Access mean?</dt>
-            <dd>Core workflows are stable and ready to use. We are actively improving edge-case compatibility and shipping frequent updates based on user feedback.</dd>
-
             <dt>How many devices can I use?</dt>
             <dd>Each license (module or Pro) can be activated on up to 3 devices. You can deactivate a device at any time to free up a slot.</dd>
 
@@ -331,7 +320,7 @@
             <dd>Yes. The keyboard/trackpad companion app is free across all tiers. Paid keyboard modules may be offered in the future.</dd>
         </dl>
 
-        <p style="margin-top: 30px; color: #8b949e; font-size: 0.85em;">Prices are listed in USD and are subject to change. Applicable taxes are calculated at checkout by Paddle. Early Access launch discount ends April 10, 2026, or after the first 200 paid activations. See our <a href="terms-of-service.html">Terms of Service</a> for refund policy and our <a href="droidos-pro-eula.html">Pro EULA</a> for paid binary license terms.</p>
+        <p style="margin-top: 30px; color: #8b949e; font-size: 0.85em;">Prices are listed in USD and are subject to change. Applicable taxes are calculated at checkout by Paddle. See our <a href="terms-of-service.html">Terms of Service</a> for refund policy and our <a href="droidos-pro-eula.html">Pro EULA</a> for paid binary license terms.</p>
 
         <p style="margin-top: 20px; text-align: center; color: #8b949e;">
             <a href="index.html">Home</a> &bull;
@@ -346,7 +335,12 @@
     <script>
         const PADDLE_CLIENT_SIDE_TOKEN = "live_518c334593b81e5d741033c589c";
 
-        const LAUNCH_DISCOUNT_ID = "dsc_01kkmmnnqs4p7ph2hrkg7c6gyd";
+        /*
+         * Previous launch sale configuration. Re-enable this and add
+         * discountId to Paddle.Checkout.open for a future sale.
+         *
+         * const LAUNCH_DISCOUNT_ID = "dsc_01kkmmnnqs4p7ph2hrkg7c6gyd";
+         */
 
         const PRICE_IDS = {
             customization: "pri_01kk943pt4pty7j7jg5b67tz28",
@@ -382,7 +376,6 @@
                     }
 
                     window.Paddle.Checkout.open({
-                        discountId: LAUNCH_DISCOUNT_ID,
                         items: [
                             {
                                 priceId,
