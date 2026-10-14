@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DroidOS Portals privacy policy for its Samsung Z Flip cover-screen launcher.">
+  <title>DroidOS Portals Privacy Policy</title>
+  <style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.65;margin:0;padding:0;background:#0d1117;color:#c9d1d9}.container{max-width:800px;margin:40px auto;padding:24px;background:#161b22;border:1px solid #30363d;border-radius:8px}h1,h2{color:#f0f6fc}h2{border-bottom:1px solid #30363d;padding-bottom:8px;margin-top:30px}a{color:#58a6ff}.muted{color:#8b949e}strong{color:#f0f6fc}ul{padding-left:24px}@media(max-width:600px){.container{margin:10px;padding:16px}}</style>
+</head>
+<body>
+<main class="container">
+  <h1>Privacy Policy for DroidOS Portals</h1>
+  <p><strong>Effective date:</strong> October 13, 2026<br><strong>Developer:</strong> KatsuyaMaki LLC</p>
+  <section>
+    <h2>Overview</h2>
+    <p>DroidOS Portals is an Android cover-screen launcher from KatsuyaMaki LLC for supported Samsung Galaxy Z Flip devices. It creates configurable app portals and optional ring gestures and Samsung cover-screen navigation. Manually tapped legacy widget portals can be used without granting Android Accessibility.</p>
+    <p>This policy describes the current VC1 Internal Testing functionality. A future paid release is planned, but no purchase-verification or paid entitlement functionality is in the VC1 Internal Testing build.</p>
+  </section>
+  <section>
+    <h2>Information handled locally</h2>
+    <p>Portals stores configured destination apps, widget and Ambient portal settings, MultiStar favorites and drawer-mode preferences, feature opt-ins, and related state in Android app-private storage. It may inspect installed app names and activities on the device to let you select destinations and configure cover-screen access.</p>
+    <p>The current app does not operate a developer backend, account system, advertising SDK, or analytics/telemetry SDK. It does not send configured apps, screen content, notification data, or locally stored screenshots to KatsuyaMaki LLC.</p>
+  </section>
+  <section>
+    <h2>Accessibility and ring controls</h2>
+    <p>With your affirmative Allow choice in the app and a separate grant in Android Accessibility Settings, Portals can inspect active Samsung cover-screen windows. This may include app package names, visible text, view identifiers, window structure, and other potentially sensitive screen content. It uses that information locally to recognize the active screen and operate configured navigation, gestures, and separately enabled portal dwell actions.</p>
+    <p>Accessibility can perform taps, swipes, and navigation in response to supported user interactions. Deny in the Portals Setup screen stops the app's Accessibility-driven processing without changing Android's independent system grant. You can separately turn the Android service off in Settings. Ordinary manually tapped portals remain an option without Accessibility.</p>
+  </section>
+  <section>
+    <h2>Optional screenshot previews</h2>
+    <p>Screenshot previews are individually opt-in. If enabled for a portal, Portals may capture the visible window of the destination app, which can contain private messages, photos, account details, or other sensitive content. The latest preview is stored as a local image in the app's private no-backup directory; secure app windows may prevent capture.</p>
+    <p>Turning a portal's preview off or deleting that portal removes its stored preview. Revoking in-app Accessibility consent stops future processing and cancels pending capture work; existing user-selected preview files remain controlled through each portal's settings or deletion. Portals does not upload these previews.</p>
+  </section>
+  <section>
+    <h2>Optional Notification Access and Samsung MultiStar</h2>
+    <p>Portals can request separate Android Notification Access to identify active notification entries for a user-directed return to the selected notification. Android's grant is broad and can expose sensitive notifications, although the app's intended flow uses source/package identifiers and short-lived keys rather than saving message titles or bodies.</p>
+    <p>With a separately installed and authorized Shizuku service, Portals can perform user-selected changes to supported Samsung MultiStar cover app-drawer and resize settings. When you separately opt into notification-source lookup and make a qualifying ring action, it may perform a bounded local read of Samsung system-log entries to identify the selected posting app. That diagnostic can encounter sensitive system-log material. It is not a continuous cloud scan or a developer-operated data upload.</p>
+    <p>These permissions and features are optional and can be revoked in Android Settings, Shizuku, or relevant Portals controls.</p>
+  </section>
+  <section>
+    <h2>Network access and planned Google Play Billing</h2>
+    <p>VC1 Internal Testing has no active paid feature gate, in-app purchase, Google Play Billing entitlement check, or developer-operated purchase-verification server. The app does not currently receive Google Play purchase or ownership data for a Portals entitlement.</p>
+    <p>A future paid release is planned to use Google Play Billing, modeled on DroidOS Keyboard Picker. If introduced, Google Play may handle a purchase and provide the app with product, purchase, and ownership status needed for an optional entitlement. Google Play handles payment credentials, not Portals. The network behavior, actual data processed and Google Play Data safety declaration will be reviewed and this policy updated before that build is distributed. This future functionality is not active in VC1.</p>
+  </section>
+  <section>
+    <h2>Storage, backups, retention, and deletion</h2>
+    <p>Portal settings are in Android app-private storage, and ordinary preferences may be included in Android-managed backup according to your device's settings. Screenshot previews are stored in a no-backup directory. Deleting an individual portal or disabling its preview clears its saved preview. Uninstalling the app removes local app-private data subject to Android's backup and restore behavior.</p>
+    <p>Portals does not maintain a developer database of screen content, notification data, or user configuration. Separate Android, Samsung, Google Play, browser, and Shizuku services follow their own privacy practices.</p>
+  </section>
+  <section>
+    <h2>Children's privacy</h2>
+    <p>Portals is a general-purpose cover-screen utility and is not designed for children under 13. It does not knowingly collect children's information for KatsuyaMaki LLC.</p>
+  </section>
+  <section>
+    <h2>Policy changes</h2>
+    <p>We may revise this policy when the app's functionality, permissions, dependencies, or data practices change. In particular, any future paid entitlement, new network function, analytics, advertising, or developer-operated data collection will require a new review and an updated public policy and relevant Play Console declarations before the affected release.</p>
+  </section>
+  <section><h2>Contact</h2><p>Privacy questions: <a href="mailto:KatsuyaMakiLLC@gmail.com">KatsuyaMakiLLC@gmail.com</a></p></section>
+  <p class="muted"><a href="/droidos-portals.html">DroidOS Portals overview</a></p>
+</main>
+</body>
+</html>
